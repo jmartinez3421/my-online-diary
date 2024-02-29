@@ -1,0 +1,57 @@
+<p-toast position="top-center" key="tr"></p-toast>
+
+<div class="page">
+  <app-subheader [title]="date" [saveBtn]="true" (onSave)="save()"></app-subheader>
+  <div class="d-flex flex-column align-items-center mt-3">
+
+    <form [formGroup]="pageForm" *ngIf="pageForm">
+      <div class="d-flex flex-column align-items-center">
+        <div class="fw-bold fs-5 mb-2">How do you feel today?</div>
+        <p-selectButton [options]="feelingOptions" styleClass="shadow-sm fit-content" optionValue="value" formControlName="feeling">
+          <ng-template let-item>
+            <i [class]="item.icon + ' icon'"></i>
+          </ng-template>
+        </p-selectButton>
+      </div>
+
+      <div class="mt-3 px-2 w-100">
+        <p-editor [style]="{'height':'220px'}" styleClass="border border-secondary rounded shadow-sm" placeholder="Write here..." formControlName="main">
+          <ng-template pTemplate="header">
+            <span class="ql-formats">
+               <button aria-label="Bold" type="button" class="ql-bold">
+
+               </button>
+               <button aria-label="Italic" type="button" class="ql-italic">
+
+               </button>
+               <button aria-label="Underline" type="button" class="ql-underline">
+
+               </button>
+            </span>
+            <span class="ql-formats">
+               <button value="ordered" aria-label="Ordered List" type="button" class="ql-list">
+
+               </button>
+               <button value="bullet" aria-label="Unordered List" type="button" class="ql-list">
+
+               </button>
+            </span>
+            <span class="ql-formats">
+               <button aria-label="Insert Link" type="button" class="ql-link">
+
+               </button>
+               <button aria-label="Insert Code Block" type="button" class="ql-code-block">
+
+               </button>
+            </span>
+          </ng-template>
+        </p-editor>
+      </div>
+
+      <div class="mt-3 px-2 w-100">
+        <div class="fw-bold fs-5 mb-2">Notes</div>
+        <textarea id="safeQuestion" rows="2" cols="30" pInputTextarea [autoResize]="true" class="w-100 border border-secondary" placeholder="Insert your notes here..." formControlName="notes"></textarea>
+      </div>
+    </form>
+  </div>
+</div>

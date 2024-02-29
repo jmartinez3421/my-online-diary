@@ -1,0 +1,9 @@
+{
+    "name": "@jmartinez3421/my-online-diary-workspace",
+    "private": true,
+    "workspaces": {
+        "packages": [
+            "apps/*"
+        ]
+    }
+}

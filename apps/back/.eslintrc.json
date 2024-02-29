@@ -1,0 +1,45 @@
+{
+  "root": true,
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": 0,
+    "@typescript-eslint/parser": 0,
+    "no-duplicate-imports": 2,
+    "no-self-compare": 2,
+    "no-unreachable-loop": 2,
+    "no-unused-private-class-members": 2,
+    "default-case": 2,
+    "default-case-last": 2,
+    "prefer-arrow-callback": 1,
+    "prefer-const": 1,
+    "prefer-destructuring": 2,
+    "prefer-promise-reject-errors": 1,
+    "require-await": 2,
+    "spaced-comment": 1,
+    "arrow-parens": [2, "always"],
+    "brace-style": 2,
+    "key-spacing": [2, { "afterColon": true }],
+    "no-whitespace-before-property": 2,
+    "semi": 2,
+    "semi-style": 2,
+    "template-curly-spacing": [2, "always"],
+    "quotes": [2, "single", { "allowTemplateLiterals": true }],
+    "curly": [2, "all"],
+    "no-empty": [2, { "allowEmptyCatch": true }],
+    "no-trailing-spaces": [1],
+    "space-before-blocks": [1]
+  }
+}

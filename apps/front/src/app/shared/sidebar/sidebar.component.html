@@ -1,0 +1,15 @@
+<p-sidebar [(visible)]="visible" position="right" [baseZIndex]="10000" [blockScroll]="true" [showCloseIcon]="false" styleClass="w-auto" [transitionOptions]="'500ms cubic-bezier(0, 0, 0.2, 1)'">
+ <div class="h-100 d-flex flex-column justify-content-between">
+
+     <div class="d-flex flex-column">
+       <span *ngIf="menuItems.length > 0">
+          <a *ngFor="let item of menuItems" [routerLink]="item.routerLink" routerLinkActive="active" class="p-2 py-3 menu-item text-start border-bottom">
+            <i [class]="item.icon + ' me-2'"></i> {{ item.label }}
+          </a>
+       </span>
+    </div>
+    <a class="border-top p-2 text-end bg-light text-dark fs-3" (click)="logout()" style="width: 200px">
+      Logout <i class="ms-1 bi bi-box-arrow-in-right"></i>
+    </a>
+  </div>
+</p-sidebar>

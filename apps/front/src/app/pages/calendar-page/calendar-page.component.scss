@@ -1,0 +1,55 @@
+@import '../../../scss/custom';
+
+::ng-deep{
+  .ng-tns-c76-0, .ng-tns-c76-1{
+    text-align: center;
+  }
+
+  .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover{
+    background: var(--active-background) !important;
+  }
+
+  .p-datepicker table td > span.p-highlight{
+    background: var(--active-background) !important;
+  }
+
+  .p-datepicker table td > span:focus{
+    box-shadow: none !important;
+  }
+
+  .subtitle{
+    font-size: 1.2rem !important;
+    margin: 0 auto;
+  }
+
+  .p-datepicker table th{
+    text-align: center !important;
+  }
+}
+
+.day{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .2s;
+
+  &.note-day{
+    --active-background: #94ea94;
+    background-color: #94ea94;
+  }
+
+  &.filled-day{
+    --active-background: var(--bs-primary);
+    background-color: $primary;
+    color: white;
+  }
+
+  &.active{
+    font-size: 1.1rem;
+    font-weight: bold;
+    filter: brightness(85%);
+  }
+}
+

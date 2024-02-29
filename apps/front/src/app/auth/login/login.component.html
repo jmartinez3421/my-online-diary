@@ -1,0 +1,45 @@
+<p-toast position="top-center" key="tr"></p-toast>
+
+<div class="container-fluid h-75 d-flex align-items-center justify-content-center">
+    <p-card class="col-12 col-md-6 col-lg-6 col-xl-5" styleClass="border">
+      <ng-template pTemplate="header">
+        <div class="container-fluid text-center py-1 border-bottom fw-bolder">
+          <h4>Login</h4>
+        </div>
+      </ng-template>
+
+      <form [formGroup]="loginForm" autocomplete="off" (submit)="login()">
+        <div class="row">
+          <div class="col-12 mb-2">
+            <div class="field">
+              <label for="email" class="d-block">Email</label>
+              <input id="email" type="Email" class="w-100" [ngClass]="{'ng-dirty ng-invalid': isValid('email')}"
+                     pInputText formControlName="email"/>
+              <small *ngIf="isValid('email')" id="email-help" class="p-error d-block">The email has to be a valid email
+                (demo@demo.com)</small>
+            </div>
+          </div>
+
+          <div class="col-12 mb-2">
+            <div class="field">
+              <label for="password" class="d-block">Password</label>
+              <p-password styleClass="w-100 p-password p-component p-inputwrapper p-input-icon-right" inputStyleClass="w-100" id="password" inputId="password"
+                          formControlName="password" [toggleMask]="true"></p-password>
+              <small *ngIf="isValid('password')" id="password-help" class="p-error d-block">The password must have 8
+                characters, 1 uppercase, 1 lowercase and 1 special character</small>
+            </div>
+          </div>
+
+          <div class="d-grid mt-3">
+            <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+          </div>
+        </div>
+      </form>
+
+      <ng-template pTemplate="footer">
+        <div class="border-top fs-6 pt-1" style="margin-bottom: -10px">
+          No account yet? <a routerLink="/auth/register">Register here</a>
+        </div>
+      </ng-template>
+    </p-card>
+</div>

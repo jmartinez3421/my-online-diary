@@ -1,0 +1,3 @@
+<app-header [showMenu]="!isAuth"></app-header>
+<router-outlet></router-outlet>
+<app-footer *ngIf="!isAuth"></app-footer>

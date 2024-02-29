@@ -1,0 +1,18 @@
+<div #header class="container-fluid p-0" [ngClass]="{'shadow-sm': !visibleSidebar}">
+  <div class="d-flex bg-primary text-light align-items-center justify-content-between p-2">
+    <h1><i class="bi bi-bookmarks-fill"></i>My diary</h1>
+    <button class="btn btn-link text-light fs-1" (click)="visibleSidebar = !visibleSidebar" *ngIf="showMenu">
+      <i [ngClass]="{'bi bi-list': !visibleSidebar, 'bi bi-x-lg': visibleSidebar}"></i>
+    </button>
+  </div>
+  <div class="w-100 bg-primary bg-opacity-10 d-flex flex-column dropdown" *ngIf="visibleSidebar && showMenu">
+    <button class="btn btn-link w-100 text-start border-bottom fs-5" (click)="showConfig(); visibleSidebar = !visibleSidebar">
+      <i class="bi bi-gear-fill"></i> Settings
+    </button>
+    <button class="btn btn-link w-100 text-start <!--border-top--> fs-5" (click)="logout()" routerLink="/auth">
+      <i class="bi bi-box-arrow-in-right"></i> Logout
+    </button>
+  </div>
+</div>
+
+

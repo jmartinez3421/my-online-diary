@@ -1,0 +1,56 @@
+@import "../../../scss/custom";
+
+.home{
+
+  button{
+    width: 20rem !important;
+  }
+
+  .phrase{
+    @include media-breakpoint-up(md) {
+      width: 75%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    width: 100%;
+    padding: 2rem;
+    background-color: #d09528;
+    color: #fff;
+    font-size: .8rem;
+    font-weight: 500;
+    border-radius: 0 0 2rem 2rem;
+    position: relative;
+    top: 0;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    figure{
+      z-index: 1;
+    }
+
+    &::before{
+      content: '\f6b0';
+      font-family: bootstrap-icons;
+      color: darken(#d09528, 2%);
+      position: absolute;
+      font-size: 6rem;
+      top: -42px;
+      left: -17px;
+    }
+
+    &::after{
+      content: '\f6b0';
+      font-family: bootstrap-icons;
+      color: darken(#d09528, 2%);
+      position: absolute;
+      font-size: 6rem;
+      bottom: -35px;
+      right: -17px;
+      rotate: 180deg;
+    }
+  }
+}

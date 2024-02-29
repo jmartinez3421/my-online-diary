@@ -1,0 +1,28 @@
+<p-toast position="top-center" key="tr"></p-toast>
+
+<div class="page">
+<app-subheader title="Select a date to see what you wrote"></app-subheader>
+  <div class="row mx-0 pt-2">
+    <div class="col-12 px-2">
+      <p-calendar [(ngModel)]="selectedDay" [inline]="true" [showWeek]="false" styleClass="w-100 shadow-sm" (onSelect)="changeDay()" [maxDate]="today">
+        <ng-template pTemplate="date" let-date>
+          <span class="day" [ngClass]="{'active': isSelected(date), 'filled-day': isFilled(date), 'note-day': hasNotes(date)}">{{date.day}}</span>
+        </ng-template>
+      </p-calendar>
+    </div>
+    <div class="col-12 mt-3" *ngIf="selectedPage">
+      <div class="d-flex justify-content-center fw-bolder bg-light p-2 rounded shadow-sm">
+        <h3 class="flex-grow-1 text-center ps-2">{{selectedPage.date | date}}</h3>
+        <i class="bi fs-2 lh-sm" [ngClass]="{'bi bi-emoji-laughing-fill': selectedPage.feeling === 'happy', 'bi bi-emoji-neutral-fill': selectedPage.feeling === 'normal', 'bi bi-emoji-frown-fill': selectedPage.feeling === 'sad' }"></i>
+      </div>
+      <div class="bg-white p-2 mt-2 rounded shadow-sm" *ngIf="selectedPage.main !== ''">
+        <p class="text-justify" [innerHTML]="selectedPage.main | sanitizeHtml"></p>
+      </div>
+      <div class="mt-2 px-2 w-100">
+        <div class="fw-bold fs-5 mb-2">Notes</div>
+        <textarea id="safeQuestion" rows="2" cols="30" pInputTextarea [autoResize]="true" class="w-100 border border-secondary" placeholder="Insert your notes here..." [(ngModel)]="selectedPage.notes"></textarea>
+        <button class="btn btn-primary float-end" (click)="save()"><i class="pi pi-save"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

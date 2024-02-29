@@ -1,0 +1,25 @@
+<div class="home">
+  <p-progressBar mode="indeterminate" *ngIf="loading" [style]="{'height': '6px'}"></p-progressBar>
+  <div class="phrase" *ngIf="qod && showQuote">
+    <figure class="text-end m-0">
+      <blockquote class="blockquote">
+        <p>{{qod.text}}</p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        {{qod.author}}
+      </figcaption>
+    </figure>
+  </div>
+  <div class="container-fluid d-flex flex-column align-items-center mt-5">
+    <button class="btn btn-primary text-center mb-3 fs-3" routerLink="/diary/today">
+      <span><i class="bi bi-pencil-fill"></i> WRITE TODAY'S</span>
+    </button>
+    <button class="btn btn-primary text-center mb-3 fs-3 bg-primary bg-opacity-50 border-0" routerLink="/diary/pages">
+      <span><i class="bi bi-calendar-event-fill"></i> FIND PAGES</span>
+    </button>
+    <button class="btn btn-primary text-center mb-3 fs-3 bg-primary bg-opacity-50 border-0" routerLink="/diary/search">
+      <span><i class="bi bi-search"></i> SEARCH</span>
+    </button>
+
+  </div>
+</div>

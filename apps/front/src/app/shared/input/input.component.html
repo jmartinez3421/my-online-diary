@@ -1,0 +1,6 @@
+<div class="field">
+  <label [for]="name" class="d-block">{{label}}</label>
+  <input [id]="name" [type]="type" class="ng-dirty w-100" [ngClass]="{'ng-invalid': valid}" pInputText [(ngModel)]="value"/>
+  <small *ngIf="valid" id="{{name}}-help" class="p-error d-block">{{errorMsg}}</small>
+</div>
+

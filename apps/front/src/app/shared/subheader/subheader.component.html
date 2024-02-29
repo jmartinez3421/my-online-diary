@@ -1,0 +1,5 @@
+<div class="bg-light shadow-sm justify-content-between py-3 px-2 d-flex align-items-center sticky-top">
+  <h3 class="subtitle" *ngIf="isDate">{{title | date}}</h3>
+  <h3 class="subtitle" *ngIf="!isDate">{{title}}</h3>
+  <button *ngIf="saveBtn" class="btn btn-primary" (click)="save()"><i class="pi pi-save"></i></button>
+</div>

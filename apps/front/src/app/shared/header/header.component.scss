@@ -1,0 +1,25 @@
+@import '../../../scss/custom';
+
+.dropdown{
+  transform-origin: top center;
+  animation: dropdown .3s ease-in-out;
+  overflow: hidden;
+
+  .btn-link{
+    border-radius: 0 !important;
+    padding: 1rem;
+    &:hover{
+      background-color: rgba($primary, .2) !important;
+    }
+  }
+
+}
+
+@keyframes dropdown {
+  0%{
+    transform: scaleY(0);
+  }
+  100%{
+    transform: scaleY(1);
+  }
+}

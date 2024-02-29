@@ -1,0 +1,75 @@
+<p-toast position="top-center" key="tr"></p-toast>
+
+<div class="page">
+  <app-subheader title="What do you look for?"></app-subheader>
+  <form [formGroup]="searchForm" (submit)="search()">
+    <div class="row mt-3 mx-0">
+      <div class="col-12 mb-3">
+        <h3>Feelings</h3>
+        <p-selectButton [options]="feelingOptions" optionValue="value" optionLabel="icon" styleClass="d-flex feeling"
+                        formControlName="feeling">
+          <ng-template let-item>
+            <i [class]="item.icon + ' fs-3 text-center'"></i>
+          </ng-template>
+        </p-selectButton>
+      </div>
+      <div class="col-6">
+        <h3>Filled</h3>
+        <p-selectButton [options]="yesNoOptions" optionValue="value" optionLabel="icon"
+                        styleClass="d-flex justify-content-center" formControlName="main">
+          <ng-template let-item>
+            <i [class]="item.icon + ' fs-3'" *ngIf="item.icon"></i>
+            <span *ngIf="item.label" class="fw-bold text-center" style="margin-left: -5px">{{item.label}}</span>
+          </ng-template>
+        </p-selectButton>
+      </div>
+      <div class="col-6">
+        <h3>Notes</h3>
+        <p-selectButton [options]="yesNoOptions" optionValue="value" optionLabel="icon"
+                        styleClass="d-flex justify-content-center" formControlName="notes">
+          <ng-template let-item>
+            <i [class]="item.icon + ' fs-3'" *ngIf="item.icon"></i>
+            <span *ngIf="item.label" class="fw-bold text-center" style="margin-left: -5px">{{item.label}}</span>
+          </ng-template>
+        </p-selectButton>
+      </div>
+
+      <div class="col-12 mt-3">
+        <div class="d-grid">
+          <button class="btn btn-primary fs-3 bw-bold">
+            <i class="bi bi-search"></i> Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="mt-3" *ngIf="searched">
+    <h3 class="w-100 text-center shadow-sm p-2">Results <button class="float-end btn btn-link" style="color: #E34835" (click)="cleanResults()"><i class="bi bi-eraser-fill"></i></button></h3>
+
+    <div class="accordion mx-2" id="accordionExample" *ngIf="results.length > 0">
+      <div class="accordion-item" *ngFor="let page of results; let i = index">
+        <h2 class="accordion-header" id="heading{{i}}">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" attr.data-bs-target="#collapse{{i}}"
+                  aria-expanded="true" attr.aria-controls="collapse{{i}}">
+            {{page.date | date}} &nbsp;&nbsp;         <i class="bi fs-2 lh-sm" [ngClass]="{'bi bi-emoji-laughing-fill': page.feeling === 'happy', 'bi bi-emoji-neutral-fill': page.feeling === 'normal', 'bi bi-emoji-frown-fill': page.feeling === 'sad' }"></i>
+
+          </button>
+        </h2>
+        <div id="collapse{{i}}" class="accordion-collapse collapse" attr.aria-labelledby="heading{{i}}"
+             data-bs-parent="#accordionExample">
+          <div class="accordion-body bg-white">
+            <div *ngIf="page.main !== ''">
+              <p class="text-justify" [innerHTML]="page.main | sanitizeHtml"></p>
+            </div>
+            <div class="mt-2" *ngIf="page.notes !== ''">
+              <div class="fw-bold fs-6 mb-2">Notes</div>
+              <p class="text-justify" [innerHTML]="page.notes | sanitizeHtml"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

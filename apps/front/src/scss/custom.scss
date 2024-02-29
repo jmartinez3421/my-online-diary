@@ -1,0 +1,33 @@
+@import "variables";
+
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
+
+.btn-link {
+  text-decoration: none;
+}
+
+.p-button:focus {
+  box-shadow: initial !important;
+}
+
+.ql-editor {
+  font-size: 1rem !important;
+}
+
+.p-inputtextarea {
+  font-size: 1rem !important;
+}
+
+.fit-content {
+  width: fit-content !important;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+.page {
+  height: calc(97.5vh - var(--footer-height) - var(--header-height));
+  overflow-y: scroll;
+}

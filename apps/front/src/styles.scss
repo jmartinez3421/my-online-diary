@@ -1,0 +1,15 @@
+@import "scss/custom";
+
+body{
+  height: 100vh;
+  --primary-dark: $primary-dark;
+}
+
+a {
+  text-decoration: none !important;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(80%);
+  }
+}

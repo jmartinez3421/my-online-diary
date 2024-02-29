@@ -1,0 +1,62 @@
+{
+  "name": "my-online-library-server",
+  "version": "1.0.0",
+  "description": "REST server for the app My Online Library",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.ts",
+    "start:dev": "ts-node-dev ./src/index.ts",
+    "build": "tsc",
+    "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json}\"",
+    "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/my-online-diary/server.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "mongodb",
+    "typescript"
+  ],
+  "author": "jmartinez3421",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/crypto-js": "^4.1.1",
+    "@types/express": "^4.17.14",
+    "@types/express-validator": "^3.0.0",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^18.8.3",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "ts-node-dev": "^2.0.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "google-auth-library": "^8.5.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.5",
+    "typescript": "^4.8.4"
+  },
+  "lint-staged": {
+    "./src/**/*.{js,jsx,ts,tsx,json}": [
+      "yarn run format",
+      "yarn run lint"
+    ]
+  }
+}
